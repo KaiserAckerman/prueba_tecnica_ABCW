@@ -1,0 +1,70 @@
+<section id="contacto" class="scroll-mt-20 py-16 md:py-24">
+  <div class="mx-auto max-w-xl px-4">
+    <h2 class="text-center font-serif text-3xl font-bold text-tostado sm:text-4xl">Escríbenos</h2>
+    <p class="mt-4 text-center text-lg text-tostado/80">¿Dudas, pedidos o ideas? Cuéntanos y te respondemos pronto.</p>
+
+    <div role="status">
+      @if (enviado()) {
+        <p class="mt-8 rounded-lg bg-green-100 px-4 py-3 text-center font-medium text-green-900">
+          ¡Gracias, {{ nombreEnviado() }}! Recibimos tu mensaje y te responderemos pronto.
+        </p>
+      }
+    </div>
+
+    <form [formGroup]="formulario" (ngSubmit)="enviar()" novalidate class="mt-8 space-y-6">
+      <div>
+        <label for="nombre" class="block font-medium text-tostado">Nombre</label>
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+          autocomplete="name"
+          [attr.aria-invalid]="mensajeError('nombre') ? 'true' : null"
+          [attr.aria-describedby]="mensajeError('nombre') ? 'error-nombre' : null"
+          class="mt-2 w-full rounded-lg border border-tostado/30 bg-white px-4 py-3 text-tostado focus-visible:outline-2 focus-visible:outline-acento aria-invalid:border-red-700"
+        />
+        @if (mensajeError('nombre'); as error) {
+          <p id="error-nombre" class="mt-2 text-sm font-medium text-red-700">{{ error }}</p>
+        }
+      </div>
+
+      <div>
+        <label for="correo" class="block font-medium text-tostado">Correo electrónico</label>
+        <input
+          id="correo"
+          type="email"
+          formControlName="correo"
+          autocomplete="email"
+          [attr.aria-invalid]="mensajeError('correo') ? 'true' : null"
+          [attr.aria-describedby]="mensajeError('correo') ? 'error-correo' : null"
+          class="mt-2 w-full rounded-lg border border-tostado/30 bg-white px-4 py-3 text-tostado focus-visible:outline-2 focus-visible:outline-acento aria-invalid:border-red-700"
+        />
+        @if (mensajeError('correo'); as error) {
+          <p id="error-correo" class="mt-2 text-sm font-medium text-red-700">{{ error }}</p>
+        }
+      </div>
+
+      <div>
+        <label for="mensaje" class="block font-medium text-tostado">Mensaje</label>
+        <textarea
+          id="mensaje"
+          rows="5"
+          formControlName="mensaje"
+          [attr.aria-invalid]="mensajeError('mensaje') ? 'true' : null"
+          [attr.aria-describedby]="mensajeError('mensaje') ? 'error-mensaje' : null"
+          class="mt-2 w-full rounded-lg border border-tostado/30 bg-white px-4 py-3 text-tostado focus-visible:outline-2 focus-visible:outline-acento aria-invalid:border-red-700"
+        ></textarea>
+        @if (mensajeError('mensaje'); as error) {
+          <p id="error-mensaje" class="mt-2 text-sm font-medium text-red-700">{{ error }}</p>
+        }
+      </div>
+
+      <button
+        type="submit"
+        class="w-full rounded-full bg-acento px-8 py-3 font-semibold text-white hover:bg-acento/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tostado"
+      >
+        Enviar mensaje
+      </button>
+    </form>
+  </div>
+</section>

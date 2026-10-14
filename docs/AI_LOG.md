@@ -69,3 +69,11 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
 - **Correcciones / aprendizaje:**
   - Pensé que `lang="en"` hace que el navegador traduzca solo; en realidad declara el idioma del texto (lectores de pantalla y traductor saben el idioma de origen), pero el usuario sigue pidiendo la traducción.
   - Expliqué bien la señal `abierta` y para qué sirve `aria-expanded` (tecnologías de asistencia).
+
+## Etapa 9 — Formulario de contacto (etapa 8 del CLAUDE.md)
+- **Pedí:** un formulario con Reactive Forms (campos nombre, correo y mensaje), errores accesibles y mensaje de éxito simulado; los errores deben mostrarse cuando el usuario sale de un campo o cambia de campo.
+- **Propuso la IA:** `FormGroup` con validadores (`required`, `minLength`, `email` + `pattern` para exigir un punto en el dominio), `mensajeError()` que solo devuelve error si el campo está `touched`, `aria-invalid` y `aria-describedby`, `role="status"` para el éxito, `novalidate` y `reset()` tras el envío; 4 tests. Aclaró que "cuando deja de escribir" (debounce) no se implementa y que `touched` cubre "al salir del campo". Verificado con `npm run build` y `npm test -- --no-watch` (16 tests pasan). No se revisó visualmente en navegador al momento de escribir esto.
+- **Cambié yo:** elegí los campos básicos, errores al tocar o enviar, y la solución de accesibilidad propuesta.
+- **Correcciones / aprendizaje:**
+  - Para añadir un campo "teléfono" mencioné el `FormControl` y el bloque HTML, pero olvidé: el tipo `Campo` (sin él no compila), la rama de `mensajeError` (si no, un error del teléfono mostraría el mensaje del correo) y que el test "tres errores al enviar vacío" pasaría a fallar al haber 4 campos obligatorios.
+  - Cambiar el mínimo del mensaje de 10 a 20 solo requiere cambiar el número; el texto del error se actualiza solo.
