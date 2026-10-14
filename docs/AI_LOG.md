@@ -54,3 +54,10 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
 - **Correcciones / aprendizaje:**
   - Creí que con cero bebidas válidas el usuario seguía viendo bebidas, y que el `any` tenía que ver. Es incorrecto: se muestra el mensaje de "no hay bebidas" (estado vacío), porque el respaldo solo entra cuando la petición falla. El `any` solo le dice a TypeScript que no verifique la forma de ese dato en tiempo de compilación; el filtrado real lo hacen las comprobaciones en tiempo de ejecución.
   - Respondí bien que para mostrar 6 bebidas basta cambiar `MAX_BEBIDAS` (línea 15 de `menu.service.ts`). Matiz: el skeleton del arreglo `esqueleto` en `menu.ts` sigue teniendo 8 elementos.
+
+## Etapa 7 — Testimonios (etapa 6 del CLAUDE.md)
+- **Pedí:** la sección de testimonios, sin foto de perfil y con contenido ficticio.
+- **Propuso la IA:** componente `Testimonials` con un arreglo `testimonios` recorrido con `@for`, cada uno en `<figure>` + `<blockquote>` + `<figcaption>`, círculo con la inicial (`nombre.charAt(0)`) en vez de foto, cuadrícula de 1/3 columnas y un test. Verificado con `npm run build` y `npm test -- --no-watch` (11 tests pasan). No se revisó visualmente en navegador al momento de escribir esto.
+- **Cambié yo:** elegí avatares con inicial en lugar de fotos y aprobé los tres testimonios ficticios.
+- **Correcciones / aprendizaje:** respondí bien las dos preguntas (añadir un testimonio solo requiere tocar el arreglo del `.ts`; `blockquote`/`figure` aportan semántica que usan los lectores de pantalla y los buscadores). Sin correcciones en esta etapa.
+- **Consulta aparte:** pregunté si el texto en inglés del menú (que viene de la API) se podía pasar a español.
