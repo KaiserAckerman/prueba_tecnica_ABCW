@@ -57,11 +57,11 @@
                   class="h-48 w-full object-cover"
                 />
                 <div class="p-5">
-                  <h3 class="font-serif text-xl font-bold text-tostado">{{ bebida.title }}</h3>
-                  <p class="mt-2 line-clamp-3 text-sm text-tostado/80">{{ bebida.description }}</p>
+                  <h3 lang="en" class="font-serif text-xl font-bold text-tostado">{{ bebida.title }}</h3>
+                  <p lang="en" class="mt-2 line-clamp-3 text-sm text-tostado/80">{{ bebida.description }}</p>
                   <ul class="mt-4 flex flex-wrap gap-2" aria-label="Ingredientes">
                     @for (ingrediente of bebida.ingredients; track ingrediente) {
-                      <li class="rounded-full bg-tostado/10 px-3 py-1 text-xs font-medium text-tostado">{{ ingrediente }}</li>
+                      <li lang="en" class="rounded-full bg-tostado/10 px-3 py-1 text-xs font-medium text-tostado">{{ ingrediente }}</li>
                     }
                   </ul>
                 </div>
