@@ -28,3 +28,13 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
 - **Correcciones / aprendizaje:**
   - Creí que `signal` "avisa" cuando un elemento cambia y que para empezar abierto había que usar `update`. En realidad `signal` es un contenedor de un valor; el valor inicial se pone en `signal(false)` (basta con `signal(true)`) y `update` solo cambia el valor después.
   - Entendí `@for` como "extrae los enlaces de la landing"; en realidad recorre el arreglo `enlaces` del `.ts`, y añadir un enlace es añadir un objeto a ese arreglo.
+
+## Etapa 4 — Hero con CTA (etapa 3 del CLAUDE.md)
+- **Pedí:** un hero con CTA; primero probar sin imagen y, si no me convencía, añadir una foto del menú de la API.
+- **Propuso la IA:** componente `Hero` con título, subtítulo y dos botones (`#menu` y `#contacto`); luego versión dividida (texto + foto) con una foto de Unsplash tomada de la API (latte), guardada en `public/images/`, con `alt`, `width`/`height` y recorte con `object-cover`. Comparó tres fotos candidatas y eligió la del latte por la paleta. Verificado con `npm run build` y `npm test -- --no-watch` (3 tests pasan).
+- **Cambié yo:** decidí probar primero sin imagen, vi que quedaba muy simple y pedí añadir una foto del menú. Aprobé el resultado.
+- **Correcciones / aprendizaje:**
+  - Creí que `sm:` es "para pantallas pequeñas"; en realidad es "desde 640 px hacia arriba" (Tailwind es mobile-first: la clase sin prefijo vale para todo).
+  - Justifiqué el único `h1` con "el SEO solo lee uno"; es impreciso: HTML5 permite varios, la razón real es la jerarquía (accesibilidad y claridad).
+  - No supe responder cómo se recorta una imagen sin deformarla (`object-cover`) ni cómo se invierte el orden de columnas (`order-*` con prefijo `md:`).
+- **Pendiente:** dar crédito al fotógrafo en el README (hay que verificar el nombre en la página de la foto en Unsplash).
