@@ -86,3 +86,11 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
   - Entendí que cambió el color del texto de los botones (no del fondo) por el contraste; si lo vuelven a blanco falla la auditoría (3.19:1 frente a 4.5:1 mínimo).
   - Expliqué bien por qué el rendimiento en `ng serve` no es representativo (build de desarrollo) y que para cambiar la resolución de la foto se toca el archivo (y, si cambia la proporción, los atributos `width`/`height`).
 - **Pendiente:** remedir rendimiento y CLS (0.103, atribuido a la carga de la fuente) con el sitio desplegado, en ventana de incógnito.
+
+## Etapa 11 — CLS, robots.txt y esqueleto del README (etapas 9 y 11 del CLAUDE.md)
+- **Pedí:** cerrar lo pendiente de Lighthouse en producción y empezar la documentación; dejar `RESPUESTAS.md` para subirlo cuando yo termine mis respuestas.
+- **Propuso la IA:** analizar el informe de producción (rendimiento 52, accesibilidad 100, recomendaciones 100, SEO 92, CLS 0,103). Primero dijo que los atributos `width`/`height` del hero eran incorrectos (800×600); al revisar el archivo resultó que es de 800×1200, así que ese diagnóstico estaba equivocado. La causa real es que, hasta que carga la hoja de estilos, la imagen reserva 2:3 y luego pasa a 4:3 (móvil); se cambió `height` a 600 para que coincida con la proporción móvil. También añadió `public/robots.txt` (sin él, Vercel devuelve el `index.html` y SEO marca 17 errores). Verificado con `npm run build` y `npm test -- --no-watch` (17 tests pasan). La mejora del CLS aún no está medida en producción. El esqueleto del README tiene "Cómo correrlo", estructura y créditos; las secciones de reflexión quedan `_(pendiente)_` para que las escriba Roberto.
+- **Cambié yo:** decidí dejar `RESPUESTAS.md` fuera de los commits hasta terminar mis respuestas y dejar el simulacro fuera del proyecto.
+- **Correcciones / aprendizaje:**
+  - FCP/LCP de 18 s en el informe sospechoso: se midió con extensiones de Chrome activas; se repetirá en incógnito.
+- **Pendiente:** remedir en incógnito tras el redeploy; nombre del fotógrafo de la foto del hero para los créditos.

@@ -1,59 +1,78 @@
-# PruebaTecnicaABCW
+# Tostadero Brisa
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Landing de una cafetería de especialidad ficticia, hecha como prueba técnica para Desarrollador Front-End Jr.
 
-## Development server
+- **Sitio desplegado:** https://prueba-tecnica-abcw.vercel.app/
+- **Repositorio:** https://github.com/KaiserAckerman/prueba_tecnica_ABCW
 
-To start a local development server, run:
+Todo el contenido (nombre, testimonios, textos) es ficticio.
 
-```bash
-ng serve
-```
+## Qué incluye
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Header con menú móvil, hero con llamada a la acción, características, menú de bebidas, testimonios, preguntas frecuentes en acordeón, formulario de contacto y footer.
+- El menú se carga desde una API pública (Sample APIs — Coffee), filtra registros inválidos y muestra estados de carga, error y vacío. Si la API falla, usa un JSON local de respaldo.
+- Formulario con Reactive Forms: campos obligatorios, correo con formato válido y mensajes de error accesibles. El envío es simulado, sin backend.
 
-## Code scaffolding
+## Tecnologías
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Angular 21 (componentes standalone, señales, Reactive Forms, `HttpClient`)
+- Tailwind CSS 4 (colores y fuentes como tokens en `src/styles.css`)
+- Vitest (tests con `ng test`)
+- Despliegue en Vercel
 
-```bash
-ng generate component component-name
-```
+## Cómo correrlo
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Requisitos: Node.js 20 o superior y npm.
 
 ```bash
-ng build
+git clone https://github.com/KaiserAckerman/prueba_tecnica_ABCW.git
+cd prueba_tecnica_ABCW
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Abre `http://localhost:4200/`. La página se recarga sola al guardar cambios.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Otros comandos:
 
 ```bash
-ng test
+npm test -- --no-watch   # corre los tests una vez
+npm run build            # build de producción en dist/prueba_tecnica_ABCW/browser
 ```
 
-## Running end-to-end tests
+## Estructura
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```
+src/app/
+  header/        logo, navegación y menú móvil
+  hero/          título y botones de acción
+  features/      características
+  menu/          bebidas desde la API (servicio + componente)
+  testimonials/  testimonios
+  faq/           acordeón
+  contact-form/  formulario con validación
+  footer/
+public/
+  images/        foto del hero e imagen de reemplazo
+  menu-respaldo.json   menú local si la API falla
+docs/
+  AI_LOG.md      registro del uso de IA durante el desarrollo
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Decisiones técnicas
 
-## Additional Resources
+_(pendiente)_
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Reto enfrentado
+
+_(pendiente)_
+
+## Cómo usé IA
+
+_(pendiente)_
+
+## Créditos
+
+- Datos del menú: [Sample APIs — Coffee](https://api.sampleapis.com/coffee/hot).
+- Fotos: [Unsplash](https://unsplash.com). _(pendiente: nombre del fotógrafo de la foto del hero)_
+- Tipografías: Fraunces e Inter, de Google Fonts.
