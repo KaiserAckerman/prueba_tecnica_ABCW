@@ -94,3 +94,8 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
 - **Correcciones / aprendizaje:**
   - FCP/LCP de 18 s en el informe sospechoso: se midió con extensiones de Chrome activas; se repetirá en incógnito.
 - **Pendiente:** remedir en incógnito tras el redeploy; nombre del fotógrafo de la foto del hero para los créditos.
+
+## Respuestas conceptuales (RESPUESTAS.md)
+- **Pedí:** que me explicara de qué trataba cada pregunta y, por falta de tiempo, que redactara un borrador de las respuestas.
+- **Propuso la IA:** el borrador completo de las 8 respuestas, a partir de mis ideas (mi criterio de la 3, mi idea del build en la 6, Astro en la 2).
+- **Cambié yo:** (completar tras revisar y ajustar cada respuesta a lo que realmente pienso y he hecho).
