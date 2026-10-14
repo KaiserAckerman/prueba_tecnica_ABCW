@@ -20,3 +20,11 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
   - Pensé que no existía un lugar único para cambiar el color principal; la IA me corrigió: es `@theme` en `styles.css`.
   - Al practicar, señalé la línea de `--color-crema` (el fondo) como si fuera el color principal; el principal es `--color-tostado`. Los nombres por color pueden confundir.
   - Aprendí que `chore:` es un tipo de Conventional Commits (mantenimiento) y que los estilos del `body` van en `styles.css` porque está fuera de `<app-root>` y los estilos de componente están encapsulados.
+
+## Etapa 3 — Estructura, header con menú móvil y footer (etapa 2 del CLAUDE.md)
+- **Pedí:** crear la estructura de componentes, el header con menú móvil y el footer.
+- **Propuso la IA:** componentes standalone `Header` y `Footer`; menú móvil con `signal(false)` + `@if`, `aria-expanded`/`aria-label` en el botón, cierre del menú al pulsar un enlace y header `sticky`; enlaces en un arreglo recorrido con `@for ... track`; un test del menú móvil. Verificado con `npm run build` y `npm test -- --no-watch` (3 tests pasan). No se revisó visualmente en navegador al momento de escribir esto.
+- **Cambié yo:** elegí la opción del `signal`, que el menú se cierre al pulsar un enlace y el header `sticky`.
+- **Correcciones / aprendizaje:**
+  - Creí que `signal` "avisa" cuando un elemento cambia y que para empezar abierto había que usar `update`. En realidad `signal` es un contenedor de un valor; el valor inicial se pone en `signal(false)` (basta con `signal(true)`) y `update` solo cambia el valor después.
+  - Entendí `@for` como "extrae los enlaces de la landing"; en realidad recorre el arreglo `enlaces` del `.ts`, y añadir un enlace es añadir un objeto a ese arreglo.
