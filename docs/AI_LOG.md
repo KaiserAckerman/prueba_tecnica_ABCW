@@ -77,3 +77,12 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
 - **Correcciones / aprendizaje:**
   - Para añadir un campo "teléfono" mencioné el `FormControl` y el bloque HTML, pero olvidé: el tipo `Campo` (sin él no compila), la rama de `mensajeError` (si no, un error del teléfono mostraría el mensaje del correo) y que el test "tres errores al enviar vacío" pasaría a fallar al haber 4 campos obligatorios.
   - Cambiar el mínimo del mensaje de 10 a 20 solo requiere cambiar el número; el texto del error se actualiza solo.
+
+## Etapa 10 — Contraste y rendimiento de imágenes (parte de la etapa 9 del CLAUDE.md)
+- **Pedí:** revisar responsive y accesibilidad y pasar Lighthouse. Decidí no cambiar el color `acento`.
+- **Propuso la IA:** calcular el contraste de la paleta (varias combinaciones no llegaban a 4.5:1). Como no cambié `acento`, se cambió el texto de los botones naranjas a un marrón oscuro (`--color-tinta`, 5.12:1), la etiqueta del hero a `amber-300`, los hover de enlaces a subrayado y las opacidades `/70` y `/80` a `/90`. También `fetchpriority="high"` en la foto del hero, reducir las imágenes del menú a 600 px (con test) y la foto del hero a 800 px (de 148 KB a 81 KB). Verificado con `npm run build` y `npm test -- --no-watch` (17 tests pasan).
+- **Cambié yo:** decidí mantener el color naranja y aprobé reducir el tamaño de las imágenes. Corrí Lighthouse en DevTools (móvil) y pasé el informe: accesibilidad 100, recomendaciones 100, SEO 100; rendimiento 52, pero medido sobre `ng serve`, no sobre el sitio real.
+- **Correcciones / aprendizaje:**
+  - Entendí que cambió el color del texto de los botones (no del fondo) por el contraste; si lo vuelven a blanco falla la auditoría (3.19:1 frente a 4.5:1 mínimo).
+  - Expliqué bien por qué el rendimiento en `ng serve` no es representativo (build de desarrollo) y que para cambiar la resolución de la foto se toca el archivo (y, si cambia la proporción, los atributos `width`/`height`).
+- **Pendiente:** remedir rendimiento y CLS (0.103, atribuido a la carga de la fuente) con el sitio desplegado, en ventana de incógnito.

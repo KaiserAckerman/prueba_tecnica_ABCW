@@ -28,11 +28,19 @@ function esBebidaValida(x: any): x is Bebida {
   );
 }
 
+// Las URLs de Unsplash piden la foto a 1887 px de ancho; para una tarjeta basta con 600.
+function reducirImagen(url: string): string {
+  return url.replace(/([?&])w=\d+/, '$1w=600');
+}
+
 function limpiar(datos: unknown): Bebida[] {
   if (!Array.isArray(datos)) {
     return [];
   }
-  return datos.filter(esBebidaValida).slice(0, MAX_BEBIDAS);
+  return datos
+    .filter(esBebidaValida)
+    .slice(0, MAX_BEBIDAS)
+    .map((bebida) => ({ ...bebida, image: reducirImagen(bebida.image) }));
 }
 
 @Injectable({ providedIn: 'root' })

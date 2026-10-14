@@ -39,6 +39,18 @@ describe('MenuService', () => {
     expect(resultado.length).toBe(1);
   });
 
+  it('pide las imágenes de Unsplash a 600 px de ancho', () => {
+    let resultado: { image: string }[] = [];
+    servicio.obtenerBebidas().subscribe((b) => (resultado = b));
+
+    http.expectOne('https://api.sampleapis.com/coffee/hot').flush([
+      { ...valida(1), image: 'https://images.unsplash.com/photo-1?auto=format&q=80&w=1887&ixlib=rb-4.0.3' },
+    ]);
+
+    expect(resultado[0].image).toContain('w=600');
+    expect(resultado[0].image).not.toContain('w=1887');
+  });
+
   it('devuelve como máximo 8 bebidas y no repite la foto del hero', () => {
     let resultado: { id: number | string }[] = [];
     servicio.obtenerBebidas().subscribe((b) => (resultado = b));
