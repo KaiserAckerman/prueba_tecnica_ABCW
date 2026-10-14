@@ -1,0 +1,27 @@
+<section id="faq" class="scroll-mt-20 bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-3xl px-4">
+    <h2 class="text-center font-serif text-3xl font-bold text-tostado sm:text-4xl">Preguntas frecuentes</h2>
+
+    <div class="mt-12 divide-y divide-tostado/15 rounded-2xl border border-tostado/15 bg-crema">
+      @for (item of preguntas; track item.pregunta; let i = $index) {
+        <div>
+          <h3>
+            <button
+              type="button"
+              class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-tostado hover:text-acento focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-acento"
+              [attr.aria-expanded]="abierta() === i"
+              [attr.aria-controls]="'respuesta-' + i"
+              (click)="alternar(i)"
+            >
+              {{ item.pregunta }}
+              <span class="text-2xl leading-none" aria-hidden="true">{{ abierta() === i ? '−' : '+' }}</span>
+            </button>
+          </h3>
+          @if (abierta() === i) {
+            <p [id]="'respuesta-' + i" class="px-6 pb-5 text-tostado/80">{{ item.respuesta }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

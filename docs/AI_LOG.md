@@ -61,3 +61,11 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
 - **Cambié yo:** elegí avatares con inicial en lugar de fotos y aprobé los tres testimonios ficticios.
 - **Correcciones / aprendizaje:** respondí bien las dos preguntas (añadir un testimonio solo requiere tocar el arreglo del `.ts`; `blockquote`/`figure` aportan semántica que usan los lectores de pantalla y los buscadores). Sin correcciones en esta etapa.
 - **Consulta aparte:** pregunté si el texto en inglés del menú (que viene de la API) se podía pasar a español.
+
+## Etapa 8 — FAQ en acordeón (etapa 7 del CLAUDE.md) y `lang="en"` en el menú
+- **Pedí:** un FAQ en acordeón (una pregunta abierta a la vez, cuatro preguntas propuestas por la IA); además, saber si el menú se podía mostrar en español.
+- **Propuso la IA:** componente `Faq` con un arreglo `preguntas` y una señal `abierta` (posición abierta o `null`) con `alternar()`; botones dentro de `<h3>` con `aria-expanded` y `aria-controls`; test que comprueba abrir, cambiar y cerrar. Sobre el idioma: la API solo ofrece inglés, así que propuso dejarlo y marcarlo con `lang="en"` en título, descripción e ingredientes. Verificado con `npm run build` y `npm test -- --no-watch` (12 tests pasan). No se revisó visualmente en navegador al momento de escribir esto.
+- **Cambié yo:** elegí una pregunta abierta a la vez, dejé el contenido de las cuatro preguntas tal cual y decidí no traducir el menú, solo marcar el idioma.
+- **Correcciones / aprendizaje:**
+  - Pensé que `lang="en"` hace que el navegador traduzca solo; en realidad declara el idioma del texto (lectores de pantalla y traductor saben el idioma de origen), pero el usuario sigue pidiendo la traducción.
+  - Expliqué bien la señal `abierta` y para qué sirve `aria-expanded` (tecnologías de asistencia).
