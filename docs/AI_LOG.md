@@ -38,3 +38,11 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
   - Justifiqué el único `h1` con "el SEO solo lee uno"; es impreciso: HTML5 permite varios, la razón real es la jerarquía (accesibilidad y claridad).
   - No supe responder cómo se recorta una imagen sin deformarla (`object-cover`) ni cómo se invierte el orden de columnas (`order-*` con prefijo `md:`).
 - **Pendiente:** dar crédito al fotógrafo en el README (hay que verificar el nombre en la página de la foto en Unsplash).
+
+## Etapa 5 — Características (etapa 4 del CLAUDE.md)
+- **Pedí:** la sección de características; prefería iconos SVG pero acepté emojis porque no usamos librerías de iconos.
+- **Propuso la IA:** componente `Features` con un arreglo `caracteristicas` (icono, título, descripción) recorrido con `@for`, cuadrícula de 1/2/4 columnas (`sm:` y `lg:`), emojis con `aria-hidden`, `id="caracteristicas"` con `scroll-mt-20` y un test que comprueba una tarjeta por elemento. Verificado con `npm run build` y `npm test -- --no-watch` (4 tests pasan).
+- **Cambié yo:** elegí emojis frente a SVG inline y aprobé el contenido de las cuatro tarjetas.
+- **Correcciones / aprendizaje:**
+  - Expliqué bien que `@for` recorre el arreglo del `.ts` y que una quinta característica se añade ahí.
+  - Usé 700 px y 1100 px como puntos de corte; los reales de Tailwind son `sm` = 640 px y `lg` = 1024 px (el resultado en esas pantallas sí era correcto: 2 y 4 columnas).
