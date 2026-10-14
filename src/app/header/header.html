@@ -8,7 +8,7 @@
       <ul class="flex gap-8">
         @for (enlace of enlaces; track enlace.href) {
           <li>
-            <a [href]="enlace.href" class="font-medium text-tostado hover:text-acento focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-acento">
+            <a [href]="enlace.href" class="font-medium text-tostado hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-acento">
               {{ enlace.texto }}
             </a>
           </li>
@@ -39,7 +39,7 @@
       <ul class="mx-auto flex max-w-6xl flex-col px-4 py-2">
         @for (enlace of enlaces; track enlace.href) {
           <li>
-            <a [href]="enlace.href" (click)="cerrarMenu()" class="block py-3 font-medium text-tostado hover:text-acento focus-visible:outline-2 focus-visible:outline-acento">
+            <a [href]="enlace.href" (click)="cerrarMenu()" class="block py-3 font-medium text-tostado hover:underline focus-visible:outline-2 focus-visible:outline-acento">
               {{ enlace.texto }}
             </a>
           </li>

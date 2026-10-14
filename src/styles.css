@@ -4,6 +4,7 @@
   --color-crema: #faf5ee;
   --color-tostado: #6f4e37;
   --color-acento: #d97706;
+  --color-tinta: #2b1d14;
 
   --font-serif: "Fraunces", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
@@ -11,6 +12,6 @@
 
 body {
   background-color: var(--color-crema);
-  color: #2b1d14;
+  color: var(--color-tinta);
   font-family: var(--font-sans);
 }

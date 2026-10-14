@@ -8,7 +8,7 @@
           <h3>
             <button
               type="button"
-              class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-tostado hover:text-acento focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-acento"
+              class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-tostado hover:underline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-acento"
               [attr.aria-expanded]="abierta() === i"
               [attr.aria-controls]="'respuesta-' + i"
               (click)="alternar(i)"
@@ -18,7 +18,7 @@
             </button>
           </h3>
           @if (abierta() === i) {
-            <p [id]="'respuesta-' + i" class="px-6 pb-5 text-tostado/80">{{ item.respuesta }}</p>
+            <p [id]="'respuesta-' + i" class="px-6 pb-5 text-tostado/90">{{ item.respuesta }}</p>
           }
         </div>
       }
