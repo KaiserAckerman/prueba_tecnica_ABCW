@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Imagen no disponible">
+  <rect width="400" height="300" fill="#efe4d6"/>
+  <g fill="none" stroke="#6f4e37" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M140 120h100v50a40 40 0 0 1-40 40h-20a40 40 0 0 1-40-40z"/>
+    <path d="M240 135h15a20 20 0 0 1 0 40h-17"/>
+    <path d="M165 90c0-12 10-12 10-24M195 90c0-12 10-12 10-24"/>
+  </g>
+</svg>

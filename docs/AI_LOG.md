@@ -46,3 +46,11 @@ Registro honesto de qué pedí, qué propuso la IA y qué cambié yo. Alimenta l
 - **Correcciones / aprendizaje:**
   - Expliqué bien que `@for` recorre el arreglo del `.ts` y que una quinta característica se añade ahí.
   - Usé 700 px y 1100 px como puntos de corte; los reales de Tailwind son `sm` = 640 px y `lg` = 1024 px (el resultado en esas pantallas sí era correcto: 2 y 4 columnas).
+
+## Etapa 6 — Menú desde la API (etapa 5 del CLAUDE.md)
+- **Pedí:** el menú de bebidas desde la API, con las decisiones: estado con señales, respaldo local solo si la API falla (no si no hay bebidas válidas), mostrar las primeras 8, sin precios y sin repetir la foto del hero.
+- **Propuso la IA:** `MenuService` con `HttpClient` y una función que filtra los registros basura (título/descripción/imagen con texto, ingredientes como arreglo, sin "test", sin la foto del hero) y limita a 8; componente `Menu` con señales `bebidas`, `estado` y `usandoRespaldo`; skeleton de carga, mensaje de error con "Reintentar", mensaje de vacío, aviso cuando se usa el respaldo, `loading="lazy"` e imagen local de reemplazo si una foto falla; `public/menu-respaldo.json` con 8 bebidas reales; `provideHttpClient()` en `app.config.ts`; 7 tests nuevos. Verificado con `npm run build` y `npm test -- --no-watch` (10 tests pasan). No se revisó visualmente en navegador al momento de escribir esto.
+- **Cambié yo:** decidí usar solo señales, que el respaldo se use únicamente si la API falla, mostrar 8 bebidas, no mostrar precios y evitar repetir la foto del hero.
+- **Correcciones / aprendizaje:**
+  - Creí que con cero bebidas válidas el usuario seguía viendo bebidas, y que el `any` tenía que ver. Es incorrecto: se muestra el mensaje de "no hay bebidas" (estado vacío), porque el respaldo solo entra cuando la petición falla. El `any` solo le dice a TypeScript que no verifique la forma de ese dato en tiempo de compilación; el filtrado real lo hacen las comprobaciones en tiempo de ejecución.
+  - Respondí bien que para mostrar 6 bebidas basta cambiar `MAX_BEBIDAS` (línea 15 de `menu.service.ts`). Matiz: el skeleton del arreglo `esqueleto` en `menu.ts` sigue teniendo 8 elementos.
